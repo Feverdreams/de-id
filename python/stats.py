@@ -1,4 +1,4 @@
-
+import sys
 def are_overlapped(gstart,gend,tstart,tend):
     return ( (( gstart <= tend )  and (gstart >= tstart)) or 
             ((gend <= tend) and (gend >= tstart)) or 
@@ -39,7 +39,8 @@ def run_stats(gold_path = 'id.deid', gold_cats_path= 'id-phi.phrase', test_paht=
     total_test_phi = 0
 
 
-    with open(test_path) as test:  
+
+    with open(test_paht) as test:
         for line in test:
             results = re.findall(patient_note_pattern,line,flags=re.IGNORECASE)
             if len(results) ==1:
@@ -253,5 +254,5 @@ if __name__== "__main__":
         
     
     
-    run_stats(sys.argv[1], sys.argv[2], sys.arg[3])
+    run_stats(sys.argv[1], sys.argv[2], sys.argv[3])
     
